@@ -1,0 +1,411 @@
+// ЮФУ, ИКТИБ, МОП ЭВМ
+// ПиОТА
+// Индивидуальное задание 3
+// Вариант 3-16
+// Клёц Даниил Юрьевич
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+struct Information {
+	string in;
+	string out;
+	bool isend = false;
+};
+
+void WorkReplace(string& WorkString, const string& in, const string& out, int& i)
+
+{
+	auto s = WorkString.find(in);
+	if (s == -1)
+	{
+		return;
+	}
+	WorkString.replace(s, in.length(), out);
+	cout << "(" << i + 1 << ") " << WorkString << endl;
+	return;
+}
+void fillString(vector<Information>& Info, string& instr)
+{
+	int fFlag = 0;
+	string helpString = instr;
+	cout << "(" << Info.size() + 1 << ") " << helpString << endl;
+	while (Info[fFlag].isend == false)
+	{
+		auto sFlag = helpString.find(Info[fFlag].in);
+		int ruleNumber = 0;
+		while (sFlag == -1)
+		{
+			if (ruleNumber == 2 * Info.size() + 1)
+			{
+				cout << "(" << Info.size() + 1 << ")" << helpString << endl;
+				break;
+			}
+			ruleNumber++;
+			fFlag = (fFlag + 1) % Info.size();
+			sFlag = helpString.find(Info[fFlag].in);
+		}
+		WorkReplace(helpString, Info[fFlag].in, Info[fFlag].out, fFlag);
+		if (Info[fFlag].isend == true) break;
+		fFlag = 0;
+	}
+	instr = helpString;
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	string str;
+
+	vector<Information> Info (106);
+
+	Information Struct;
+
+	int i = 0;
+	Struct.in = "*a", Struct.out = "a*", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "*b"; Struct.out = "b*", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "*c"; Struct.out = "c*"; Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "*d", Struct.out = "d*", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "*e"; Struct.out = "e*"; Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "e*"; Struct.out = "Ea"; Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "/a"; Struct.out = "a/"; Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "/b", Struct.out = "b/", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "/c", Struct.out = "c/", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "/d", Struct.out = "d/", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "/e", Struct.out = "e/", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "b/", Struct.out = "Bb", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "a/", Struct.out = "Ab", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "c/", Struct.out = "Cb", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "d/", Struct.out = "Db", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "e/", Struct.out = "Eb", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "?c", Struct.out = "c?", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "?a", Struct.out = "a?", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "?b", Struct.out = "b?", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "?d", Struct.out = "d?", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "?e", Struct.out = "e?", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "c?", Struct.out = "Cc", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "a?", Struct.out = "Ac", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "b?", Struct.out = "Bc", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "d?", Struct.out = "Dc", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "e?", Struct.out = "Ec", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "-d", Struct.out = "d-", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "-a", Struct.out = "a-", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "-b", Struct.out = "b-", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "-c", Struct.out = "c-", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "-e", Struct.out = "e-", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "e-", Struct.out = "Ed", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "a-", Struct.out = "Ad", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "b-", Struct.out = "Bd", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "c-", Struct.out = "Cd", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "d-", Struct.out = "Dd", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = ")e", Struct.out = "e)", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = ")a", Struct.out = "a)", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = ")b", Struct.out = "b)", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = ")c", Struct.out = "c)", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = ")d", Struct.out = "d)", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "a)", Struct.out = "Ae", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "b)", Struct.out = "Be", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "c)", Struct.out = "Ce", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "d)", Struct.out = "De", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "e)", Struct.out = "Ee", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "aE", Struct.out = "Ea", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "bE", Struct.out = "Eb", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "cE", Struct.out = "Ec", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "dE", Struct.out = "Ed", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "eE", Struct.out = "Ee", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Ea", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Eb", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Ec", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Ed", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Ee", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "b*", Struct.out = "Ba", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "aB", Struct.out = "Ba", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "bB", Struct.out = "Bb", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "cB", Struct.out = "Bc", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "dB", Struct.out = "Bd", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "eB", Struct.out = "Be", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Ba", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Bb", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Bc", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Bd", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Be", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "c*", Struct.out = "", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "aC", Struct.out = "Ca", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "bC", Struct.out = "Cb", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "cC", Struct.out = "Cc", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "dC", Struct.out = "Cd", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "eC", Struct.out = "Ce", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Ca", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Cb", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Cc", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Cd", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Ce", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "d*", Struct.out = "Da", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "aD", Struct.out = "Da", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "bD", Struct.out = "Db", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "cD", Struct.out = "Dc", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "dD", Struct.out = "Dd", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "eD", Struct.out = "De", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Da", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Db", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Dc", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Dd", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "De", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "a*", Struct.out = "Aa", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "aA", Struct.out = "Aa", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "bA", Struct.out = "Ab", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "cA", Struct.out = "Ac", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "dA", Struct.out = "Ad", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "eA", Struct.out = "Ae", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Aa", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Ab", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Ac", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Ad", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "Ae", Struct.out = "", Struct.isend = true;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "~a", Struct.out = "a*", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "~b", Struct.out = "b/", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "~c", Struct.out = "c?", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "~d", Struct.out = "d-", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+	Struct.in = "~e", Struct.out = "e)", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+
+	Struct.in = "", Struct.out = "~", Struct.isend = false;
+	Info[i] = Struct;
+	i += 1;
+
+	cout << "Input string:\n";
+	cin >> str;
+
+	int size = str.length();
+	for (int i = 0; i < size; i++)
+	{
+		if (str[i] >= 97 && str[i] <= 102)
+		{
+
+		}
+		else
+		{
+			cout << "Система не может принимать такие значения.";
+			return 0;
+		}
+	}
+
+	fillString(Info, str);
+
+	cout << "Output: " << str << endl;
+	system("pause");
+
+	return 0;
+}
