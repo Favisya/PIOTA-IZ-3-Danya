@@ -60,7 +60,7 @@ int main()
 	setlocale(LC_ALL, "Russian");
 	string str;
 
-	vector<Information> Info (106);
+	vector<Information> Info(106);
 
 	Information Struct;
 
@@ -218,19 +218,19 @@ int main()
 	Struct.in = "eE", Struct.out = "Ee", Struct.isend = false;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Ea", Struct.out = "", Struct.isend = true;
+	Struct.in = "Ea", Struct.out = "e", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Eb", Struct.out = "", Struct.isend = true;
+	Struct.in = "Eb", Struct.out = "e", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Ec", Struct.out = "", Struct.isend = true;
+	Struct.in = "Ec", Struct.out = "e", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Ed", Struct.out = "", Struct.isend = true;
+	Struct.in = "Ed", Struct.out = "e", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Ee", Struct.out = "", Struct.isend = true;
+	Struct.in = "Ee", Struct.out = "e", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
 	Struct.in = "b*", Struct.out = "Ba", Struct.isend = false;
@@ -251,22 +251,22 @@ int main()
 	Struct.in = "eB", Struct.out = "Be", Struct.isend = false;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Ba", Struct.out = "", Struct.isend = true;
+	Struct.in = "Ba", Struct.out = "b", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Bb", Struct.out = "", Struct.isend = true;
+	Struct.in = "Bb", Struct.out = "b", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Bc", Struct.out = "", Struct.isend = true;
+	Struct.in = "Bc", Struct.out = "b", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Bd", Struct.out = "", Struct.isend = true;
+	Struct.in = "Bd", Struct.out = "b", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Be", Struct.out = "", Struct.isend = true;
+	Struct.in = "Be", Struct.out = "b", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "c*", Struct.out = "", Struct.isend = false;
+	Struct.in = "c*", Struct.out = "Ca", Struct.isend = false;
 	Info[i] = Struct;
 	i += 1;
 	Struct.in = "aC", Struct.out = "Ca", Struct.isend = false;
@@ -284,19 +284,19 @@ int main()
 	Struct.in = "eC", Struct.out = "Ce", Struct.isend = false;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Ca", Struct.out = "", Struct.isend = true;
+	Struct.in = "Ca", Struct.out = "c", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Cb", Struct.out = "", Struct.isend = true;
+	Struct.in = "Cb", Struct.out = "c", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Cc", Struct.out = "", Struct.isend = true;
+	Struct.in = "Cc", Struct.out = "c", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Cd", Struct.out = "", Struct.isend = true;
+	Struct.in = "Cd", Struct.out = "c", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Ce", Struct.out = "", Struct.isend = true;
+	Struct.in = "Ce", Struct.out = "c", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
 	Struct.in = "d*", Struct.out = "Da", Struct.isend = false;
@@ -317,19 +317,19 @@ int main()
 	Struct.in = "eD", Struct.out = "De", Struct.isend = false;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Da", Struct.out = "", Struct.isend = true;
+	Struct.in = "Da", Struct.out = "d", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Db", Struct.out = "", Struct.isend = true;
+	Struct.in = "Db", Struct.out = "d", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Dc", Struct.out = "", Struct.isend = true;
+	Struct.in = "Dc", Struct.out = "d", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Dd", Struct.out = "", Struct.isend = true;
+	Struct.in = "Dd", Struct.out = "d", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "De", Struct.out = "", Struct.isend = true;
+	Struct.in = "De", Struct.out = "d", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
 	Struct.in = "a*", Struct.out = "Aa", Struct.isend = false;
@@ -350,19 +350,19 @@ int main()
 	Struct.in = "eA", Struct.out = "Ae", Struct.isend = false;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Aa", Struct.out = "", Struct.isend = true;
+	Struct.in = "Aa", Struct.out = "a", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Ab", Struct.out = "", Struct.isend = true;
+	Struct.in = "Ab", Struct.out = "a", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Ac", Struct.out = "", Struct.isend = true;
+	Struct.in = "Ac", Struct.out = "a", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Ad", Struct.out = "", Struct.isend = true;
+	Struct.in = "Ad", Struct.out = "a", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
-	Struct.in = "Ae", Struct.out = "", Struct.isend = true;
+	Struct.in = "Ae", Struct.out = "a", Struct.isend = true;
 	Info[i] = Struct;
 	i += 1;
 	Struct.in = "~a", Struct.out = "a*", Struct.isend = false;
@@ -385,7 +385,7 @@ int main()
 	Info[i] = Struct;
 	i += 1;
 
-	cout << "Input string:\n";
+	cout << "Введите строку: \n";
 	cin >> str;
 
 	int size = str.length();
@@ -404,7 +404,7 @@ int main()
 
 	fillString(Info, str);
 
-	cout << "Output: " << str << endl;
+	cout << "Вывод: " << str << endl;
 	system("pause");
 
 	return 0;
